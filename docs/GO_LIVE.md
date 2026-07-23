@@ -1,31 +1,31 @@
 # Go-live — Touchstone
 
-## Honest goal
+## Remember
 
-**Grok wins as benchmark designer** — Touchstone is a credible Kaggle coding-reasoning arena.  
-**Open-weight models** are the only competitors on the leaderboard.
+1. **Grok 4.5** showcases **designing** code-reasoning benchmarks that evaluate other models.  
+2. **Touchstone** (the project) **competes on Kaggle** as a Community Benchmark.  
+3. **Free catalog models** (open or closed) may be scored under Daily AI Quota — fair use.  
 
 ## Live links
 
 | Asset | URL |
 |-------|-----|
 | GitHub | https://github.com/linzialessandro/touchstone |
-| Kaggle Benchmark | https://www.kaggle.com/benchmarks/alessandrolinzi/touchstone |
-| Dataset | `alessandrolinzi/touchstone` (after upload) |
+| Benchmark | https://www.kaggle.com/benchmarks/alessandrolinzi/touchstone |
+| Dataset | https://www.kaggle.com/datasets/alessandrolinzi/touchstone |
+| Task | https://www.kaggle.com/benchmarks/tasks/alessandrolinzi/ts-partition |
 
-## Checklist
+## Status
 
-- [x] Suite + harness + designer-vs-competitor docs  
-- [x] Code on GitHub  
-- [ ] Dataset uploaded  
-- [ ] Open models scored on Kaggle GPU  
-- [ ] Benchmark page populated (tasks, description, links)  
+- [x] Dataset uploaded  
+- [x] First executable task `ts-partition` public  
+- [x] Multi-model free catalog runs  
+- [x] Models importable on benchmark LB  
+- [ ] More Touchstone tasks  
+- [ ] Benchmark public + polished when ready  
 
-## Commands
+## Fair use
 
-```bash
-python scripts/package_kaggle.py
-python scripts/package_kaggle.py --upload   # you run — publishes dataset
-```
-
-Open-model scoring: **Kaggle free GPU only** (not this laptop).
+- Small batches of `kaggle b t run`  
+- Prefer **Add Models** when it reuses completed runs (quota stays flat)  
+- Retry 429/503 later; don’t spam the full catalog  

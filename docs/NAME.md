@@ -39,5 +39,7 @@ A **touchstone** is the classical stone used to assay gold — a criterion of ge
 
 ### Public line (README / Kaggle)
 
-> Touchstone is an executable coding-reasoning benchmark for **open-weight models**.  
-> **Designed with Grok.** Grok does **not** compete — the win is design quality of the arena.
+> Touchstone is an executable coding-reasoning benchmark on Kaggle.  
+> **Designed with Grok 4.5** to showcase strong **benchmark design** for code reasoning.  
+> Free catalog models (open or closed) are scored under one fair protocol.  
+> The **project** competes on Kaggle as a Community Benchmark.
