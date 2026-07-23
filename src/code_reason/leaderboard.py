@@ -1,4 +1,4 @@
-"""Aggregate run JSON artifacts into a Touchstone leaderboard."""
+"""Aggregate run JSON artifacts into a Touchstone leaderboard (open models only)."""
 
 from __future__ import annotations
 
@@ -28,8 +28,6 @@ class LeaderboardRow:
 def _infer_track(provider: str, model: str) -> str:
     if provider == "mock":
         return "plumbing"
-    if provider == "grok" or model.startswith("grok"):
-        return "frontier"
     return "open"
 
 
@@ -58,7 +56,8 @@ def build_rows(
     for path, run in load_runs(runs_dir):
         if run.provider == "mock" and not include_plumbing:
             continue
-        if run.provider not in ("hf", "grok", "mock"):
+        # Official LB: open-weight only
+        if run.provider != "hf" and not (run.provider == "mock" and include_plumbing):
             continue
 
         s = run.summary
@@ -99,8 +98,7 @@ def build_rows(
             best[key] = row
 
     rows = list(best.values())
-    # Overall rank by pass rate (frontier and open compete on the same scoreboard)
-    rows.sort(key=lambda r: (-(r.pass_rate or -1.0), r.track != "frontier", r.model))
+    rows.sort(key=lambda r: (-(r.pass_rate or -1.0), r.model))
     return rows
 
 
@@ -110,25 +108,25 @@ def rows_to_markdown(rows: list[LeaderboardRow], *, title: str = "Touchstone Lea
         "",
         "Metric: **pass rate** (executable unit tests).",
         "",
-        "**Goal:** Grok 4.5 competes and aims to win — same tasks and tests as open models.",
-        "**Open track:** Kaggle free GPU. **Frontier:** Grok 4.5 (and later peers).",
+        "**Competitors:** open-weight models only.",
+        "**Grok:** benchmark **designer** — not a leaderboard entry.",
         "",
-        "| Rank | Track | Model | Pass rate | Pass | Fail | Error | N |",
-        "|------|-------|-------|-----------|------|------|-------|---|",
+        "| Rank | Model | Pass rate | Pass | Fail | Error | N |",
+        "|------|-------|-----------|------|------|-------|---|",
     ]
     for i, r in enumerate(rows, start=1):
         rate = f"{r.pass_rate:.1%}" if r.pass_rate is not None else "n/a"
         lines.append(
-            f"| {i} | {r.track} | `{r.display}` | {rate} | {r.n_pass} | {r.n_fail} | {r.n_error} | {r.n_tasks} |"
+            f"| {i} | `{r.display}` | {rate} | {r.n_pass} | {r.n_fail} | {r.n_error} | {r.n_tasks} |"
         )
     if not rows:
-        lines.append("| — | — | *no competitive runs yet* | — | — | — | — | — |")
+        lines.append("| — | *no open-model runs yet* | — | — | — | — | — |")
     lines.append("")
     lines.append("## Integrity")
     lines.append("")
     lines.append(
-        "All competitive rows use the same harness, prompts, and graders. "
-        "A win for Grok 4.5 only counts if these rules held."
+        "Open models only. Same harness and tests for all. "
+        "Designer credit for Grok is separate from competition scores."
     )
     lines.append("")
     return "\n".join(lines)

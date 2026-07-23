@@ -1,3 +1,3 @@
-"""Touchstone — AI coding-reasoning benchmark (open field + Grok 4.5 competitor)."""
+"""Touchstone — AI coding-reasoning benchmark for open-weight models (Grok designs)."""
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"

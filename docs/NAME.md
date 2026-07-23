@@ -39,4 +39,5 @@ A **touchstone** is the classical stone used to assay gold — a criterion of ge
 
 ### Public line (README / Kaggle)
 
-> Touchstone is an executable coding-reasoning benchmark. Open models form the free field on Kaggle GPU. **Grok 4.5 competes on the same tests and aims to win fairly.**
+> Touchstone is an executable coding-reasoning benchmark for **open-weight models**.  
+> **Designed with Grok.** Grok does **not** compete — the win is design quality of the arena.

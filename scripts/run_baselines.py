@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-"""Run baselines from baselines/registry.yaml.
+"""Run baselines from baselines/registry.yaml (open models only).
 
+Grok wins as benchmark designer, not as a scored competitor.
 Open models: prefer Kaggle free GPU (docs/GO_LIVE.md).
-Frontier Grok 4.5: needs XAI_API_KEY; same metric as open — intended champion if earned.
 
 Examples:
 
     python scripts/run_baselines.py --track plumbing
     # open on Kaggle GPU preferred; local only with TOUCHSTONE_ALLOW_LOCAL_HF=1
-    python scripts/run_baselines.py --track frontier --only grok-4.5
 """
 
 from __future__ import annotations
@@ -36,9 +35,9 @@ def main() -> int:
     p.add_argument("--registry", type=Path, default=REPO / "baselines" / "registry.yaml")
     p.add_argument(
         "--track",
-        choices=["open", "frontier", "plumbing", "all"],
+        choices=["open", "plumbing", "all"],
         default="plumbing",
-        help="open = OSS field; frontier = Grok 4.5; plumbing = mock",
+        help="open = OSS competitors; plumbing = mock",
     )
     p.add_argument("--only", action="append", default=[], help="Model id filter (repeatable)")
     p.add_argument("--task", action="append", default=None, help="Task id filter (repeatable)")
@@ -46,7 +45,7 @@ def main() -> int:
     args = p.parse_args()
 
     reg = load_registry(args.registry)
-    jobs: list[tuple[str, str, str]] = []  # track, provider, model_id
+    jobs: list[tuple[str, str, str]] = []
 
     if args.track in ("plumbing", "all"):
         jobs.append(("plumbing", "mock", "mock-golden"))
@@ -54,9 +53,8 @@ def main() -> int:
     if args.track in ("open", "all"):
         if os.environ.get("TOUCHSTONE_ALLOW_LOCAL_HF", "").strip() not in ("1", "true", "yes"):
             print(
-                "Refusing local open-model runs (no useful GPU assumed).\n"
-                "Score open models on Kaggle free GPU — see docs/GO_LIVE.md.\n"
-                "Override only if you insist: TOUCHSTONE_ALLOW_LOCAL_HF=1",
+                "Refusing local open-model runs (use Kaggle free GPU).\n"
+                "See docs/GO_LIVE.md. Override: TOUCHSTONE_ALLOW_LOCAL_HF=1",
                 file=sys.stderr,
             )
             if args.track == "open":
@@ -64,10 +62,6 @@ def main() -> int:
         else:
             for m in reg["tracks"]["open"]["models"]:
                 jobs.append(("open", "hf", m["id"]))
-
-    if args.track in ("frontier", "all"):
-        for m in reg["tracks"]["frontier"]["models"]:
-            jobs.append(("frontier", "grok", m["id"]))
 
     if args.only:
         allow = set(args.only)

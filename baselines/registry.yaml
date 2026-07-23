@@ -1,19 +1,19 @@
-# Touchstone — model matrix
-# Goal: Grok 4.5 competes and aims to win under the same metric as open models.
+# Touchstone — open-weight competitor matrix only.
+# Grok wins as benchmark *designer*, not as a scored competitor.
 
 version: 1
 competition: touchstone
 metric: pass_rate
 
 intent: >
-  Build a serious AI coding-reasoning benchmark on Kaggle.
-  Open-weight models form the free competitive field.
-  Grok 4.5 is a frontier competitor we want at the top — same tasks, same tests.
+  Touchstone is an AI coding-reasoning benchmark on Kaggle.
+  Open-weight models compete on free GPU.
+  Grok's win is design quality of the benchmark, not a leaderboard entry.
 
 tracks:
   open:
     description: >
-      Open-weight models. Run on Kaggle free GPU (not weak laptops).
+      Only competitive track. Run on Kaggle free GPU.
     provider: hf
     models:
       - id: Qwen/Qwen2.5-1.5B-Instruct
@@ -35,19 +35,8 @@ tracks:
         display: Mistral-7B-Instruct-v0.3
         size_class: mid
 
-  frontier:
-    description: >
-      Frontier competitor track. Same harness and metric as open.
-      Primary entry: Grok 4.5 — intended champion if it earns it.
-    provider: grok
-    models:
-      - id: grok-4.5
-        display: Grok 4.5
-        size_class: frontier
-        notes: Target winner; must use identical prompts and tests
-
 integrity:
-  - Same prompts, system message, temperature policy, and tests for all tracks
-  - No Grok-specific task wording
+  - Only open-weight models appear as competitors
+  - Same prompts and tests for all competitors
+  - Grok is designer credit, not a scored entry
   - Publish run artifacts when claiming ranks
-  - If Grok loses, report that

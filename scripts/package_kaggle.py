@@ -99,8 +99,8 @@ def write_readme(path: Path, n_public: int, n_holdout: int, username: str) -> No
 A touchstone is a classical test of genuineness: models write Python; **unit tests** grade.
 
 - **Topic:** AI coding / reasoning
-- **Open field:** open-weight models (Kaggle free GPU)
-- **Frontier goal:** **Grok 4.5** competes on the **same** tests and aims to win fairly
+- **Competitors:** open-weight models only (Kaggle free GPU)
+- **Design:** built with Grok — Grok does **not** compete on the leaderboard
 - **Metric:** pass rate = fraction of tasks whose executable tests pass
 
 ## Package contents
@@ -160,7 +160,7 @@ def write_notebook(path: Path, dataset_slug: str) -> None:
                 "source": [
                     "# Touchstone — baseline notebook\n",
                     "\n",
-                    "Open-weight field on free GPU. **Grok 4.5** is a frontier competitor scored on the same tests (aim: win fairly).\n",
+                    "Open-weight models only. **Designed with Grok** — Grok does not compete on the leaderboard.\n",
                     "\n",
                     "1. Enable GPU\n",
                     f"2. Attach dataset `{dataset_slug}`\n",

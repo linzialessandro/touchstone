@@ -20,7 +20,7 @@ from code_reason.runner import run_eval, save_run
 
 app = typer.Typer(
     name="code-reason",
-    help="Touchstone — coding-reasoning eval; open models + Grok 4.5 (fair win).",
+    help="Touchstone — coding-reasoning eval for open-weight models (Grok designs; does not compete).",
     add_completion=False,
     no_args_is_help=True,
 )
@@ -82,13 +82,13 @@ def run_cmd(
         None,
         "--provider",
         "-p",
-        help="mock | hf | grok (default: env CODE_REASON_PROVIDER or mock)",
+        help="mock | hf (default: env CODE_REASON_PROVIDER or mock)",
     ),
     model: str = typer.Option(
         None,
         "--model",
         "-m",
-        help="HF id or grok-4.5 (default: env CODE_REASON_MODEL)",
+        help="HF model id for provider=hf (default: env CODE_REASON_MODEL)",
     ),
     task: Optional[list[str]] = typer.Option(
         None,
@@ -103,8 +103,6 @@ def run_cmd(
     prov = get_provider(provider)
     if prov.name == "mock":
         model_name = model or os.environ.get("CODE_REASON_MODEL") or "mock-golden"
-    elif prov.name == "grok":
-        model_name = model or os.environ.get("CODE_REASON_MODEL") or "grok-4.5"
     else:
         model_name = (
             model

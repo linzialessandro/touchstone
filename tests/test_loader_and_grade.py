@@ -27,7 +27,7 @@ def test_leaderboard_excludes_mock_by_default(tmp_path) -> None:
     rows = build_rows(tmp_path, include_plumbing=True)
     assert rows and rows[0].pass_rate == 1.0
     md = rows_to_markdown(rows)
-    assert "Grok" in md or "pass rate" in md.lower()
+    assert "designer" in md.lower() or "open-weight" in md.lower()
 
 
 def test_references_pass() -> None:

@@ -1,8 +1,9 @@
 """Provider factory.
 
-  - mock  — local plumbing (gold references)
-  - hf    — open-weight field (prefer Kaggle GPU)
-  - grok  — frontier competitor Grok 4.5 (XAI_API_KEY; aim to win fairly)
+  - mock — local plumbing (gold references)
+  - hf   — open-weight competitors (prefer Kaggle GPU)
+
+Grok is the benchmark designer, not a competitive provider.
 """
 
 from __future__ import annotations
@@ -22,7 +23,9 @@ def get_provider(name: str | None = None) -> Provider:
     if name in ("hf", "huggingface", "transformers"):
         return HuggingFaceProvider()
     if name == "grok":
-        from code_reason.providers.grok import GrokProvider
-
-        return GrokProvider()
-    raise ValueError(f"Unknown provider: {name!r}. Use mock | hf | grok")
+        raise ValueError(
+            "Grok is not a Touchstone competitor. "
+            "Grok's role is benchmark design; only open-weight models (provider=hf) compete. "
+            "Use mock | hf."
+        )
+    raise ValueError(f"Unknown provider: {name!r}. Use mock | hf")
