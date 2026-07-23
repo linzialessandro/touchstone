@@ -1,0 +1,16 @@
+{
+  "id": "012_topo_sort_modules",
+  "title": "Topological sort of modules",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Kahn-style topo; cycle returns empty list by contract.",
+  "tags": [
+    "graphs",
+    "ordering"
+  ]
+}

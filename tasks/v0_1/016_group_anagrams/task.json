@@ -1,0 +1,16 @@
+{
+  "id": "016_group_anagrams",
+  "title": "Group anagrams",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Group by sorted signature; stable group order by first occurrence.",
+  "tags": [
+    "strings",
+    "hashing"
+  ]
+}

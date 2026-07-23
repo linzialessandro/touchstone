@@ -1,0 +1,19 @@
+{
+  "id": "026_min_cover_window",
+  "title": "Minimum covering window",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Hard classic covering window; discriminates weak instruct models.",
+  "tags": [
+    "algorithms",
+    "two-pointers",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

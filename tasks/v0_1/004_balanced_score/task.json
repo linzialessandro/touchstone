@@ -1,0 +1,17 @@
+{
+  "id": "004_balanced_score",
+  "title": "Balanced delimiter score",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Original scoring rules for bracket matching; not a standard leetcode API.",
+  "tags": [
+    "strings",
+    "stack",
+    "spec"
+  ]
+}

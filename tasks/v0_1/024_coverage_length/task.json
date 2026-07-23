@@ -1,0 +1,16 @@
+{
+  "id": "024_coverage_length",
+  "title": "Covered length of union of intervals",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Measure of union of integer half-open intervals.",
+  "tags": [
+    "intervals",
+    "sweep"
+  ]
+}

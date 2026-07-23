@@ -1,0 +1,23 @@
+# Public practice / public leaderboard tasks (exported to Kaggle, no references)
+001_sliding_window_max
+002_parse_ini_sections
+004_balanced_score
+005_merge_labeled_intervals
+006_project_csv_rows
+007_normalize_unix_path
+008_compare_dotted_versions
+009_eval_rpn
+010_sparse_dot_product
+013_run_length_encode
+014_word_wrap
+015_free_time_slots
+016_group_anagrams
+017_deep_merge_dicts
+018_stable_partition
+019_matrix_ring_sum
+020_circuit_start_index
+021_valid_sudoku_board
+022_longest_common_subsequence
+023_prefix_autocomplete
+024_coverage_length
+025_json_pointer_get

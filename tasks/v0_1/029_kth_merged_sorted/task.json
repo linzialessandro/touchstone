@@ -1,0 +1,19 @@
+{
+  "id": "029_kth_merged_sorted",
+  "title": "K-th element of two sorted arrays",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Binary-search kth element; separates memorization from reasoning.",
+  "tags": [
+    "algorithms",
+    "binary-search",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

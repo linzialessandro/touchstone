@@ -1,0 +1,17 @@
+{
+  "id": "007_normalize_unix_path",
+  "title": "Normalize a Unix-style path",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Path normalization with explicit rules; original helper API.",
+  "tags": [
+    "strings",
+    "stack",
+    "spec"
+  ]
+}

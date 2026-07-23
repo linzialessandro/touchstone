@@ -1,0 +1,16 @@
+{
+  "id": "020_circuit_start_index",
+  "title": "Circular circuit start index",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Gas/cost circuit; return unique start or -1.",
+  "tags": [
+    "greedy",
+    "arrays"
+  ]
+}

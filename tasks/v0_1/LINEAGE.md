@@ -1,26 +1,33 @@
-# Task lineage (v0.1)
+# Task lineage — `v0_1` (CodeReason Open)
 
-Provenance policy (locked): **hybrid E**
+Provenance: **hybrid E**. Hard tier (026+) added for competition discrimination.
 
-| Priority | Kind | Rule |
-|----------|------|------|
-| 1 | `original` | Hand-authored or deep rewrite you fully understand |
-| 2 | `transform` | Seed public idea systematically rewritten; document seed + transform steps |
-| 3 | `synthetic_filtered` | LLM draft allowed; human accept/reject + owned tests |
-| never | famous-bench wrap | May *compare* later; not the product |
+## Before merge
 
-## Current tasks
+1. Exact-API memorization risk?  
+2. Cheat modes?  
+3. Tests catch cheats?  
+4. `python scripts/validate_suite.py` green  
 
-| id | provenance | notes |
-|----|------------|-------|
-| `001_sliding_window_max` | original | Classic algorithm; wording and tests authored for this harness (not a copy of a named contest PDF) |
-| `002_parse_ini_sections` | original | Small parsing/spec-following task; original tests |
-| `003_race_condition_fix` | original | Concurrency reasoning; fix a broken pattern; original tests |
+## Catalog (32 tasks)
 
-## Contamination threat model (v0.1 sketch)
+| id | difficulty | tags (abbrev) |
+|----|------------|----------------|
+| 001–025 | easy–medium | algorithms, parsing, design, … |
+| `026_min_cover_window` | hard | two-pointers |
+| `027_eval_arith_expr` | hard | parsing |
+| `028_codec_binary_tree` | hard | trees |
+| `029_kth_merged_sorted` | hard | binary-search |
+| `030_token_bucket` | hard | systems design |
+| `031_accounts_merge` | hard | union-find |
+| `032_wildcard_match` | hard | dp |
 
-See `docs/contamination.md`. For each new task, answer before merge:
+Full rows for 001–025 remain as previously authored (see git history / task.json).
 
-1. Could a model pass by memorizing a famous tutorial for this exact API?
-2. What would a cheating solution look like (hardcoded answers, empty pass, sleep)?
-3. Is the grader gaming-resistant for that cheat?
+## Competition notes
+
+- **Public split:** all of `v0_1` today.  
+- **Holdout:** move 5–10 hard+medium tasks to private before launch.  
+- **Never publish** `reference.py` on Kaggle.  
+- Competitors are open-weight models only. Grok designed the suite rules; it does not compete.  
+

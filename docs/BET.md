@@ -1,23 +1,33 @@
-# Career bet (locked summary)
-
-Full grilling decisions live in conversation history; this is the operational extract.
+# Career bet (aligned with Touchstone)
 
 ## Outcome
 
-Become a **hireable research engineer** focused on **reasoning & evaluation** of foundation models, with **code-reasoning benchmarks + eval robustness** as the public proof.
+Hireable **research engineer** in **reasoning & evaluation**, built by shipping **Touchstone**: a public **AI coding-reasoning** benchmark on Kaggle.
 
-## Constraints
+## Honest product goal
 
-| Item | Lock |
-|------|------|
-| Capacity | Free August sprint; then ~10–12 h/week during school |
-| Transition | Default join at **W2** (end of school contract); W1 only if exceptional |
-| Geography | Remote **Udine** preferred; N-EU relocate if worth cost |
-| Pay must-have | **€2,500+ net/mo** remote Udine; **€3,000+** high-cost relocate |
-| Hours on job | ~35–45 h default; harder only time-boxed exceptional |
-| Baseline models | Grok or Gemini |
-| Non-goals | Web arena product; Lean headline; wrap famous benches as product |
+| Goal | Meaning |
+|------|---------|
+| **Topic** | AI coding / reasoning benchmarks (favourite subject) |
+| **Venue** | Kaggle (Community Benchmarks + dataset; GPU for open models) |
+| **Win condition** | **Grok 4.5 competes and possibly wins** the leaderboard under **identical** executable tests |
+| **Field** | Strong open-weight models as the pack to beat |
 
-## Employer priority
+This is **not** “Grok only designs and never scores.”  
+It **is** “build a serious arena, enter Grok 4.5, aim for first place without cheating the metric.”
 
-**Startups (eval/agents) > Big Tech RE > frontier opportunistic > institutes if fit**
+## Product identity
+
+| In | Out |
+|----|-----|
+| Fair multi-model comparison | Rigged tasks / Grok-only hints |
+| Open track on free Kaggle GPU | Requiring paid APIs to *participate* in open track |
+| Frontier Grok 4.5 as competitor | Fake win by hiding losses |
+| Executable tests | LLM-as-judge as primary metric |
+
+## Success signals
+
+1. Live dataset + benchmark with clear rules.  
+2. ≥3 open models scored on Kaggle GPU.  
+3. **Grok 4.5** scored on the same public split; rank published honestly.  
+4. You can defend metric and contamination story in an RE interview.  

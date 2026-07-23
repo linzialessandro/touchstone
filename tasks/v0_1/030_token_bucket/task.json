@@ -1,0 +1,19 @@
+{
+  "id": "030_token_bucket",
+  "title": "Token bucket rate limiter",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Stateful systems design mini-problem.",
+  "tags": [
+    "design",
+    "simulation",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

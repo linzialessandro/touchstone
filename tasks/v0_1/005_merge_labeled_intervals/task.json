@@ -1,0 +1,17 @@
+{
+  "id": "005_merge_labeled_intervals",
+  "title": "Merge labeled intervals",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Original labeled merge rules (touching = end+1); multi-label independence.",
+  "tags": [
+    "intervals",
+    "sorting",
+    "multi-step"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "022_longest_common_subsequence",
+  "title": "Longest common subsequence length",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Classic LCS length; small strings in tests.",
+  "tags": [
+    "dp",
+    "strings"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "031_accounts_merge",
+  "title": "Merge accounts by shared emails",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Graph merge problem; multi-step coding.",
+  "tags": [
+    "graphs",
+    "union-find",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

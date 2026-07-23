@@ -1,0 +1,17 @@
+{
+  "id": "017_deep_merge_dicts",
+  "title": "Deep merge dictionaries",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Deep merge with conflict policy; original rules.",
+  "tags": [
+    "data-structures",
+    "recursion",
+    "spec"
+  ]
+}

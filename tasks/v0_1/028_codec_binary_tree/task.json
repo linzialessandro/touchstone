@@ -1,0 +1,19 @@
+{
+  "id": "028_codec_binary_tree",
+  "title": "Serialize and deserialize binary tree",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Tree codec round-trip; multi-function design task.",
+  "tags": [
+    "trees",
+    "design",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

@@ -8,12 +8,26 @@ from code_reason.providers.mock import MockProvider
 from code_reason.runner import run_eval
 
 
-def test_discover_three_tasks() -> None:
+def test_discover_suite_size() -> None:
     tasks = discover_tasks()
     ids = {t.id for t in tasks}
+    assert len(tasks) >= 32
     assert "001_sliding_window_max" in ids
-    assert "002_parse_ini_sections" in ids
-    assert "003_race_condition_fix" in ids
+    assert "032_wildcard_match" in ids
+
+
+def test_leaderboard_excludes_mock_by_default(tmp_path) -> None:
+    from code_reason.leaderboard import build_rows, rows_to_markdown
+    from code_reason.providers.mock import MockProvider
+    from code_reason.runner import run_eval, save_run
+
+    run = run_eval(MockProvider(), "mock-golden", task_ids=["001_sliding_window_max"])
+    save_run(run, tmp_path)
+    assert build_rows(tmp_path) == []
+    rows = build_rows(tmp_path, include_plumbing=True)
+    assert rows and rows[0].pass_rate == 1.0
+    md = rows_to_markdown(rows)
+    assert "Grok" in md or "pass rate" in md.lower()
 
 
 def test_references_pass() -> None:

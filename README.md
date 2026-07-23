@@ -1,91 +1,76 @@
-# code-reason
+# Touchstone
 
-**Provisional name** — harness-first **code-reasoning** evaluation suite for a research-engineering portfolio.
+**Executable AI coding-reasoning benchmark** — models write Python; **unit tests** grade.
 
-> Interview me relentlessly about every aspect of this until we reach a shared understanding…  
-> This repo is the **execution** of that bet: a small, honest, runnable measurement system.
+| | |
+|--|--|
+| **GitHub** | https://github.com/linzialessandro/touchstone |
+| **Kaggle Benchmark** | https://www.kaggle.com/benchmarks/alessandrolinzi/touchstone |
+| **Kaggle Dataset** | `alessandrolinzi/touchstone` |
 
-## What this is
+## Why this exists (honest)
 
-- A **thin custom Python harness** you own: `Task` → `Attempt` → `Grade` → `Run`
-- **Executable graders** (subprocess + tests), not LLM-as-judge
-- A **hybrid task provenance** policy (original core + documented transforms)
-- Explicit **contamination / limitations** docs — method is part of the product
+Favourite topic: **AI coding / reasoning benchmarks** on **Kaggle**.
 
-## What this is not (yet)
+**Goal:** put **Grok 4.5** on this leaderboard as a real competitor and **possibly win** — against a strong open-weight field — under a metric that is hard to game.
 
-- A large leaderboard or paper
-- A web “arena” product
-- A wrapper around HumanEval / LiveCodeBench as the product itself
-- Proof of AGI, general reasoning, or model rankings from 3 toy tasks
+| Track | Who | Where |
+|-------|-----|--------|
+| **Open** | Qwen, Llama, Phi, Mistral, DeepSeek-Coder, … | **Kaggle free GPU** |
+| **Frontier** | **Grok 4.5** | Same tasks/tests (API / organizer scoring) |
 
-## Quickstart
+Same prompts. Same harness. Same tests. If Grok loses, we publish that too.
 
-Requires Python 3.11+.
+## Hardware
+
+- **Open-model scoring:** Kaggle free GPU only (this laptop is not used for HF baselines).  
+- **Local:** edit suite, `validate_suite` / mock plumbing, package + upload dataset.  
+- **Grok 4.5:** frontier scoring when `XAI_API_KEY` is set (not free Kaggle notebooks).
+
+## Quickstart (local — no model race)
 
 ```bash
-cd /path/to/Grill-me-test
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
-# List tasks
 code-reason list-tasks
-
-# Offline plumbing test (mock returns golden solutions)
 code-reason run --provider mock
-
-# Grade a local file (ownership drill)
-code-reason grade-file 001_sliding_window_max \
-  tasks/v0_1/001_sliding_window_max/reference.py
+python scripts/validate_suite.py
+python scripts/package_kaggle.py
 ```
 
-### Live baseline (Grok or Gemini)
+## Score models
+
+**Open (Kaggle GPU):** attach dataset → run `baseline_notebook.ipynb` → swap models.  
+
+**Grok 4.5 (frontier):**
 
 ```bash
-cp .env.example .env
-# Edit .env: set XAI_API_KEY or GEMINI_API_KEY
-
-# Grok
-export XAI_API_KEY=...
-code-reason run --provider grok --model grok-3-mini
-
-# Gemini
-export GEMINI_API_KEY=...
-code-reason run --provider gemini --model gemini-2.0-flash
+pip install -e ".[frontier]"
+# .env → XAI_API_KEY=...
+code-reason run -p grok -m grok-4.5
+python scripts/build_leaderboard.py
 ```
 
-Run JSON artifacts land in `runs/` (gitignored).
+## Suite
 
-## Layout
+| Item | Value |
+|------|--------|
+| Full local suite | **32** tasks |
+| Public (Kaggle package) | **22** |
+| Holdout | **10** |
+| Metric | Pass rate (executable tests) |
 
-```
-src/code_reason/          # harness (own this)
-  models.py               # Task, Attempt, Grade, Run
-  loader.py               # discover tasks
-  extract.py              # code fence extraction
-  grader.py               # deterministic tests
-  runner.py               # batch eval
-  providers/              # mock | grok | gemini
-  cli.py                  # code-reason entrypoint
-tasks/v0_1/               # versioned task set + LINEAGE.md
-docs/                     # contamination, ownership, bet summary
-FREE_MONTH.md             # August sprint plan
-runs/                     # local run artifacts
-```
+## Docs
 
-## Adding a task
-
-1. Create `tasks/v0_1/<id>/` with `task.json`, `prompt.md`, `tests.py`, optional `reference.py`
-2. Add a row to `tasks/v0_1/LINEAGE.md`
-3. Answer contamination questions in `docs/contamination.md`
-4. `code-reason grade-file <id> path/to/reference.py` must **pass**
-5. A deliberately broken solution must **fail**
-
-## Career context
-
-See `docs/BET.md` and `FREE_MONTH.md`. Short version: build toward a **research eng** role in **reasoning/evals**, default job start after the school year, remote Udine preferred.
+| Doc | Topic |
+|-----|--------|
+| [docs/COMPETITION.md](docs/COMPETITION.md) | Win condition, tracks, integrity |
+| [docs/GO_LIVE.md](docs/GO_LIVE.md) | Push / upload / GPU steps |
+| [docs/KAGGLE.md](docs/KAGGLE.md) | Dataset + Benchmarks |
+| [docs/NAME.md](docs/NAME.md) | Why “Touchstone” |
+| [docs/BET.md](docs/BET.md) | Career framing |
 
 ## License
 
-MIT (harness). Dataset/task terms: still original small set; revisit if you ingest external seeds.
+MIT (harness). Task package default license in metadata: CC0.

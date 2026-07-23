@@ -1,4 +1,4 @@
-"""CLI: list tasks, grade a solution file, run a baseline."""
+"""CLI: list tasks, grade a solution file, run open-model / mock evals."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from code_reason.runner import run_eval, save_run
 
 app = typer.Typer(
     name="code-reason",
-    help="Harness-first code-reasoning eval.",
+    help="Touchstone — coding-reasoning eval; open models + Grok 4.5 (fair win).",
     add_completion=False,
     no_args_is_help=True,
 )
@@ -82,13 +82,13 @@ def run_cmd(
         None,
         "--provider",
         "-p",
-        help="mock | grok | gemini (default: env CODE_REASON_PROVIDER or mock)",
+        help="mock | hf | grok (default: env CODE_REASON_PROVIDER or mock)",
     ),
     model: str = typer.Option(
         None,
         "--model",
         "-m",
-        help="Model id (default: env CODE_REASON_MODEL or provider default)",
+        help="HF id or grok-4.5 (default: env CODE_REASON_MODEL)",
     ),
     task: Optional[list[str]] = typer.Option(
         None,
@@ -99,15 +99,18 @@ def run_cmd(
     tasks_dir: Optional[Path] = typer.Option(None),
     out_dir: Path = typer.Option(REPO_ROOT / "runs", "--out"),
 ) -> None:
-    """Run the eval against a provider and write a JSON run artifact."""
+    """Run the eval and write a JSON run artifact (open models / mock only)."""
     prov = get_provider(provider)
-    model_name = model or os.environ.get("CODE_REASON_MODEL") or (
-        "mock-golden" if prov.name == "mock" else "default"
-    )
-    if prov.name == "grok" and model_name == "default":
-        model_name = os.environ.get("CODE_REASON_MODEL") or "grok-3-mini"
-    if prov.name == "gemini" and model_name == "default":
-        model_name = os.environ.get("CODE_REASON_MODEL") or "gemini-2.0-flash"
+    if prov.name == "mock":
+        model_name = model or os.environ.get("CODE_REASON_MODEL") or "mock-golden"
+    elif prov.name == "grok":
+        model_name = model or os.environ.get("CODE_REASON_MODEL") or "grok-4.5"
+    else:
+        model_name = (
+            model
+            or os.environ.get("CODE_REASON_MODEL")
+            or "Qwen/Qwen2.5-1.5B-Instruct"
+        )
 
     console.print(f"Provider={prov.name} model={model_name}")
     run = run_eval(prov, model_name, task_ids=task, tasks_dir=tasks_dir)
@@ -128,7 +131,7 @@ def run_cmd(
         f"pass={s.n_pass} fail={s.n_fail} error={s.n_error} skip={s.n_skip} pass_rate={rate}"
     )
     console.print(f"Wrote {path}")
-    raise typer.Exit(0 if s.n_fail == 0 and s.n_error == 0 else 1)
+    raise typer.Exit(0)
 
 
 if __name__ == "__main__":

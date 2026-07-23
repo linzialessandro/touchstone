@@ -1,0 +1,17 @@
+{
+  "id": "025_json_pointer_get",
+  "title": "Get value by JSON-like pointer",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Minimal JSON pointer over dict/list structures; original small subset.",
+  "tags": [
+    "data-structures",
+    "spec",
+    "parsing"
+  ]
+}

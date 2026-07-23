@@ -1,0 +1,17 @@
+{
+  "id": "006_project_csv_rows",
+  "title": "Project CSV-like rows",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Simple CSV dialect with project/filter; original helper API.",
+  "tags": [
+    "parsing",
+    "spec",
+    "edge-cases"
+  ]
+}

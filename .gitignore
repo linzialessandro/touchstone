@@ -31,3 +31,12 @@ runs/*
 
 # Local notes
 scratch/
+
+# Build / public export
+dist/
+
+# Generated leaderboard may be committed when real; ignore local noise if needed
+# leaderboard/
+
+# Kaggle CLI local config if ever placed in-repo
+.kaggle/

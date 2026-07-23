@@ -1,0 +1,19 @@
+{
+  "id": "027_eval_arith_expr",
+  "title": "Evaluate arithmetic expression string",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Full expression parser; strong discriminator for coding LMs.",
+  "tags": [
+    "parsing",
+    "stack",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

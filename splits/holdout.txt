@@ -1,0 +1,13 @@
+# Private holdout — never ship reference.py or these prompts in early public dataset
+# if you want a strict private LB. For v0.2 we still keep files locally under tasks/v0_1
+# but export_public excludes them from the Kaggle package.
+003_race_condition_fix
+011_lru_cache_mini
+012_topo_sort_modules
+026_min_cover_window
+027_eval_arith_expr
+028_codec_binary_tree
+029_kth_merged_sorted
+030_token_bucket
+031_accounts_merge
+032_wildcard_match

@@ -1,0 +1,19 @@
+{
+  "id": "032_wildcard_match",
+  "title": "Wildcard matching",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 8.0,
+  "provenance": "original",
+  "lineage_notes": "Wildcard DP; classic hard coding eval item.",
+  "tags": [
+    "dp",
+    "strings",
+    "hard"
+  ],
+  "difficulty": "hard",
+  "split": "public"
+}

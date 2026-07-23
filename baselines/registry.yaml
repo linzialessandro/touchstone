@@ -1,0 +1,53 @@
+# Touchstone — model matrix
+# Goal: Grok 4.5 competes and aims to win under the same metric as open models.
+
+version: 1
+competition: touchstone
+metric: pass_rate
+
+intent: >
+  Build a serious AI coding-reasoning benchmark on Kaggle.
+  Open-weight models form the free competitive field.
+  Grok 4.5 is a frontier competitor we want at the top — same tasks, same tests.
+
+tracks:
+  open:
+    description: >
+      Open-weight models. Run on Kaggle free GPU (not weak laptops).
+    provider: hf
+    models:
+      - id: Qwen/Qwen2.5-1.5B-Instruct
+        display: Qwen2.5-1.5B-Instruct
+        size_class: small
+      - id: Qwen/Qwen2.5-7B-Instruct
+        display: Qwen2.5-7B-Instruct
+        size_class: mid
+      - id: microsoft/Phi-3.5-mini-instruct
+        display: Phi-3.5-mini-instruct
+        size_class: small
+      - id: meta-llama/Llama-3.2-3B-Instruct
+        display: Llama-3.2-3B-Instruct
+        size_class: small
+      - id: deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+        display: DeepSeek-Coder-V2-Lite-Instruct
+        size_class: mid
+      - id: mistralai/Mistral-7B-Instruct-v0.3
+        display: Mistral-7B-Instruct-v0.3
+        size_class: mid
+
+  frontier:
+    description: >
+      Frontier competitor track. Same harness and metric as open.
+      Primary entry: Grok 4.5 — intended champion if it earns it.
+    provider: grok
+    models:
+      - id: grok-4.5
+        display: Grok 4.5
+        size_class: frontier
+        notes: Target winner; must use identical prompts and tests
+
+integrity:
+  - Same prompts, system message, temperature policy, and tests for all tracks
+  - No Grok-specific task wording
+  - Publish run artifacts when claiming ranks
+  - If Grok loses, report that

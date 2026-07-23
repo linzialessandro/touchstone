@@ -1,0 +1,16 @@
+{
+  "id": "010_sparse_dot_product",
+  "title": "Sparse vector dot product",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Dict-based sparse vectors; original small API.",
+  "tags": [
+    "data-structures",
+    "math"
+  ]
+}

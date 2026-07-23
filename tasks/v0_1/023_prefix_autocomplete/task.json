@@ -1,0 +1,16 @@
+{
+  "id": "023_prefix_autocomplete",
+  "title": "Prefix autocomplete",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Return words with prefix sorted; limit k.",
+  "tags": [
+    "strings",
+    "search"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "008_compare_dotted_versions",
+  "title": "Compare dotted version strings",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Version compare with pad-zero and prerelease-free dotted ints only.",
+  "tags": [
+    "strings",
+    "spec",
+    "comparison"
+  ]
+}

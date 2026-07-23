@@ -1,0 +1,17 @@
+{
+  "id": "009_eval_rpn",
+  "title": "Evaluate reverse Polish notation",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "RPN evaluator with div-toward-zero rule stated explicitly.",
+  "tags": [
+    "stack",
+    "parsing",
+    "arithmetic"
+  ]
+}

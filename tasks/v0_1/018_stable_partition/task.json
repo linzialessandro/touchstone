@@ -1,0 +1,16 @@
+{
+  "id": "018_stable_partition",
+  "title": "Stable partition by predicate",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Stable partition preserving relative order in both parts.",
+  "tags": [
+    "arrays",
+    "ordering"
+  ]
+}

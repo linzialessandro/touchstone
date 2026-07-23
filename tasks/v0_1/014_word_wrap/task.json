@@ -1,0 +1,16 @@
+{
+  "id": "014_word_wrap",
+  "title": "Greedy word wrap",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Greedy wrap by width; spaces not at line ends.",
+  "tags": [
+    "strings",
+    "greedy"
+  ]
+}

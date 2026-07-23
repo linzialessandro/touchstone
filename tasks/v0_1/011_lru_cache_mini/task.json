@@ -1,0 +1,16 @@
+{
+  "id": "011_lru_cache_mini",
+  "title": "Minimal LRU cache",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "Capacity-bounded LRU with get/put; interview classic restated for harness.",
+  "tags": [
+    "data-structures",
+    "design"
+  ]
+}

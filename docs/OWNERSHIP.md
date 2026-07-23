@@ -5,7 +5,7 @@ Locked policy: **D**
 | Layer | AI agents | You |
 |-------|-----------|-----|
 | Glue, docs scaffolding, boilerplate | Allowed | Skim and correct |
-| Core: `Task` / `Attempt` / `Grade` / `Run`, grader, runner, lineage | Draft OK | **Must teach every line** |
+| Core: `Task` / `Attempt` / `Grade` / `Run`, grader, runner, `hf` provider, lineage | Draft OK | **Must teach every line** |
 | Task accept/reject + tests | Draft OK | **You decide** |
 | Result claims | — | You must have debugged failures yourself |
 

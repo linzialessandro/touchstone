@@ -1,0 +1,16 @@
+{
+  "id": "013_run_length_encode",
+  "title": "Run-length encode letters",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": [
+    "tests.py"
+  ],
+  "timeout_seconds": 5.0,
+  "provenance": "original",
+  "lineage_notes": "RLE for A-Z only with count rules; decode not required.",
+  "tags": [
+    "strings",
+    "encoding"
+  ]
+}

@@ -4,16 +4,19 @@ This document is part of the **method** of the project, not an afterthought.
 
 ## What we claim (v0.1)
 
-- We can run a **small** code-reasoning suite with **executable graders**.
+- We can run a **mid-size** code-reasoning suite (**25** tasks in `v0_1`) with **executable graders**.
 - We record prompts, raw model outputs, extracted code, and grade details.
 - We maintain **lineage notes** for tasks (`tasks/v0_1/LINEAGE.md`).
+- Several tasks are **original APIs / rule variants**; some share *family* resemblance with public problems (useful for harness practice; not a claim of novelty for every item).
 
 ## What we do **not** claim (v0.1)
 
 - That scores estimate “general reasoning” in the wild.
 - That tasks are contamination-free against all pretraining data.
-- That pass@1 on 3 tasks is a leaderboard.
+- That pass@1 on this suite is a public leaderboard.
 - That LLM-as-judge is involved (it is not; graders are deterministic subprocess tests).
+- That every task is research-novel (see lineage; plan holdouts before Kaggle/public launch).
+- That scores from **closed APIs** are part of this product (open-weight / Kaggle path only).
 
 ## Threat model
 

@@ -1,22 +1,35 @@
 [project]
 name = "code-reason"
-version = "0.1.0"
-description = "Harness-first code-reasoning eval (robustness-honest, research-eng portfolio)"
+version = "0.2.0"
+description = "Touchstone: AI coding-reasoning benchmark — open models on Kaggle GPU; Grok 4.5 competes to win fairly"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Alessandro" }]
 dependencies = [
-  "httpx>=0.27",
   "pydantic>=2.0",
   "typer>=0.12",
   "rich>=13.0",
+  "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0",
   "ruff>=0.6",
+]
+oss = [
+  "torch>=2.1",
+  "transformers>=4.40",
+  "accelerate>=0.30",
+  "sentencepiece>=0.2",
+]
+frontier = [
+  "httpx>=0.27",
+]
+kaggle = [
+  "kaggle>=1.6",
+  "python-dotenv>=1.0",
 ]
 
 [project.scripts]
