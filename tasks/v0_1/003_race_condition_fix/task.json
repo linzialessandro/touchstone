@@ -1,0 +1,11 @@
+{
+  "id": "003_race_condition_fix",
+  "title": "Fix a racy counter",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": ["tests.py"],
+  "timeout_seconds": 8,
+  "provenance": "original",
+  "lineage_notes": "Concurrency reasoning via a broken pattern + stress test.",
+  "tags": ["concurrency", "bugs", "threading"]
+}

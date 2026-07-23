@@ -1,0 +1,11 @@
+{
+  "id": "001_sliding_window_max",
+  "title": "Sliding window maximum",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": ["tests.py"],
+  "timeout_seconds": 5,
+  "provenance": "original",
+  "lineage_notes": "Standard algorithmic pattern; prompt and tests written for this harness.",
+  "tags": ["algorithms", "deque", "multi-step"]
+}

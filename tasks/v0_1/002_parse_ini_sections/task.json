@@ -1,0 +1,11 @@
+{
+  "id": "002_parse_ini_sections",
+  "title": "Parse INI-like sections",
+  "language": "python",
+  "prompt_file": "prompt.md",
+  "test_files": ["tests.py"],
+  "timeout_seconds": 5,
+  "provenance": "original",
+  "lineage_notes": "Spec-following / careful parsing; original for this harness.",
+  "tags": ["parsing", "spec", "edge-cases"]
+}
