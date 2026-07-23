@@ -8,13 +8,17 @@ import kaggle_benchmarks as kbench
     description="Touchstone coding: stable_partition graded by executable asserts.",
 )
 def ts_partition(llm) -> bool:
-    response = llm.prompt(
-        "Write a Python function stable_partition(items: list[int], pivot: int) -> list[int] "
-        "that returns a new list with all elements < pivot first, then elements >= pivot, "
-        "preserving relative order in each part (stable). Do not mutate the input. "
-        "Example: [5,1,4,2,3], pivot=3 -> [1,2,5,4,3]. "
-        "Return only a python code fence with the full function."
-    )
+    # Soft-fail on rate limits / API errors so the run is COMPLETED (False), not ERRORED.
+    try:
+        response = llm.prompt(
+            "Write a Python function stable_partition(items: list[int], pivot: int) -> list[int] "
+            "that returns a new list with all elements < pivot first, then elements >= pivot, "
+            "preserving relative order in each part (stable). Do not mutate the input. "
+            "Example: [5,1,4,2,3], pivot=3 -> [1,2,5,4,3]. "
+            "Return only a python code fence with the full function."
+        )
+    except Exception:
+        return False
     try:
         code = kbench.tools.python.extract_code(response)
     except Exception:
