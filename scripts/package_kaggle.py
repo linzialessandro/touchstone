@@ -270,7 +270,7 @@ def build(username: str) -> Path:
     write_notebook(OUT / "baseline_notebook.ipynb", slug)
 
     meta = {
-        "title": "Touchstone — public coding benchmark for open-weight models",
+        "title": "Touchstone open coding benchmark",
         "id": slug,
         "licenses": [{"name": "CC0-1.0"}],
     }
