@@ -61,6 +61,7 @@ Attach tasks and models in the **benchmark UI**; fair use on Daily AI Quota.
 
 | Doc | Topic |
 |-----|--------|
+| **[docs/HANDOFF.md](docs/HANDOFF.md)** | **Full state for a new conversation** |
 | [docs/COMPETITION.md](docs/COMPETITION.md) | Designer vs project vs models |
 | [docs/GO_LIVE.md](docs/GO_LIVE.md) | Ship checklist |
 | [docs/KAGGLE.md](docs/KAGGLE.md) | Dataset + Benchmarks |

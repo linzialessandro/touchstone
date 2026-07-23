@@ -1,5 +1,7 @@
 # Go-live — Touchstone
 
+**Full handoff for new chats:** [`docs/HANDOFF.md`](HANDOFF.md)
+
 ## Remember
 
 1. **Grok 4.5** showcases **designing** code-reasoning benchmarks that evaluate other models.  
